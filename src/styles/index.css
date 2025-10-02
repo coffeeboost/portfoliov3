@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light creative background */
+.creative-bg {
+  background: radial-gradient(900px 400px at -10% -10%, rgba(79,70,229,0.12), transparent 50%),
+              radial-gradient(700px 320px at 110% -10%, rgba(14,165,233,0.10), transparent 50%),
+              radial-gradient(600px 280px at 50% 110%, rgba(16,185,129,0.08), transparent 50%),
+              #ffffff;
+}
+
+.card {
+  border-width: 3px;
+  border-color: #94a3b8;
+  border-style: solid; @apply rounded-xl border border-black/5 bg-white shadow-sm; }
+.blog-content h2 { @apply text-xl font-semibold mt-4; }
+.blog-content p { @apply mt-2 text-slate-700; }
+.blog-content ul { @apply list-disc pl-6 mt-2; }
+
+html { font-size: 17px; }
+@media (min-width: 768px){ html { font-size: 18px; } }
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.blink-cursor{animation:blink 1s step-end infinite;}

@@ -1,0 +1,10 @@
+title: "Hello, world"
+date: 2025-10-01
+summary: |
+  This is a very small post written in a super-simple format:
+    
+    - First line: title (you can start it with `#` if you want)
+    - Second line: date (YYYY-MM-DD)
+    - Rest: Markdown content
+    
+    That’s it. No front matter needed.
