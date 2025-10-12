@@ -55,4 +55,4 @@ content: |
 This repo contains a **GitHub Actions** workflow that builds and publishes to GitHub Pages on push to `main`. Custom domain is **gtang.ca**. Ensure DNS is configured and **Settings → Pages → Custom domain** is set.
 
 ### Ownership
-Default owner in `/.github/CODEOWNERS` is `@coffeeboost`.
+Default owner in `/.github/CODEOWNERS` is `@coffeeboost`. 
