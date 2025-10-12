@@ -18,7 +18,7 @@ export default function Contact(){
           </form>
 
           <div className="mt-6 text-sm">
-            <a className="text-brand-500 hover:underline" href="mailto:your.email@domain.com">or email me directly</a>
+            <a className="text-brand-500 hover:underline" href="mailto:gtcanada0730@gmail.com">or email me directly</a>
             <span className="mx-2">•</span>
             <a className="text-brand-500 hover:underline" href="https://github.com/coffeeboost">GitHub</a>
           </div>
