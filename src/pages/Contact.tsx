@@ -10,7 +10,7 @@ export default function Contact(){
           <h1 className="text-3xl font-bold">Contact</h1>
           <p className="mt-2 text-slate-700">Send me a note — I’m always happy to connect.</p>
 
-          <form method="POST" action="https://formspree.io/f/YOUR_FORMSPREE_ID" className="mt-6 grid gap-3">
+          <form method="POST" action="https://formspree.io/f/mpwyozrj" className="mt-6 grid gap-3">
             <input name="name" placeholder="Your name" className="rounded border border-black/10 px-3 py-2" required />
             <input name="email" type="email" placeholder="Your email" className="rounded border border-black/10 px-3 py-2" required />
             <textarea name="message" placeholder="Message" rows={6} className="rounded border border-black/10 px-3 py-2" required />
