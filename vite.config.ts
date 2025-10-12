@@ -1,3 +1,3 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-export default defineConfig({ plugins: [react()], base: '/portfoliov3/',})
+export default defineConfig({ plugins: [react()], base: '/',}) //base: '/portfoliov3/' if not custom domain
