@@ -1,0 +1,8 @@
+# Default owner(s)
+*       @coffeeboost
+
+# Pages workflow, build & config
+.github/    @coffeeboost
+public/     @coffeeboost
+src/**      @coffeeboost
+content/**  @coffeeboost
