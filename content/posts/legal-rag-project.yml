@@ -1,0 +1,18 @@
+title: "LexRAG — Building a Legal AI on a Completely Free Stack"
+date: 2025-11-20
+summary: |
+  I built LexRAG, a RAG (Retrieval-Augmented Generation) system for legal contract analysis and case law search — and the whole thing runs locally for free. No OpenAI API key, no cloud vector database, no monthly bill.
+
+  The stack: Ollama serving Llama 3.1 8B, ChromaDB as the local vector store, BM25 for sparse keyword retrieval, a cross-encoder re-ranker, FastAPI on the backend, and Streamlit for the UI. Every component runs on your own machine.
+
+  Why RAG for legal documents? Legal text is notoriously dense, citation-heavy, and high-stakes. A system that hallucinates clause interpretations or invents case precedents is worse than useless. The whole point of RAG is to ground the model's answers in retrieved source chunks — so every response comes with citations you can verify. That constraint actually makes legal a great domain for learning RAG properly, because the failure mode (fabrication) is obvious and serious.
+
+  The retrieval pipeline is where most of the interesting work lives. Dense vector search alone misses exact-match queries — things like contract clause numbers, jurisdiction codes, or specific legal terms. BM25 sparse search catches those. Running both and fusing the results (hybrid retrieval) consistently outperforms either alone. After retrieval, a cross-encoder re-ranks the top candidates by relevance before anything reaches the LLM, which cuts down on irrelevant context being passed in.
+
+  I evaluated the system using RAGAS — a framework specifically designed for RAG evaluation. It scores answer faithfulness (does the answer match the retrieved context?), answer relevance (does it actually address the question?), and context recall. Running evals before and after each architecture change made it possible to tell whether tweaks actually helped or just felt like they did.
+
+  The free data sources are genuinely good: the CUAD dataset has 500 expert-annotated contracts, CourtListener gives access to US court opinions via API, and SEC EDGAR has thousands of public company filings. You can build a meaningful corpus without paying for anything.
+
+  The biggest lesson: the quality of your chunking strategy matters more than which LLM you use. Naively splitting PDFs by character count cuts across sentence boundaries, destroys context, and tanks retrieval quality. Splitting by paragraph or semantic unit, with overlapping windows, made a noticeable difference even before touching the model or retrieval logic.
+
+  The repo is open — check it out at github.com/coffeeboost/legal-rag-project.

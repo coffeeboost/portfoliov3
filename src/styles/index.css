@@ -2,20 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light creative background */
+@layer base {
+  body { @apply dark:bg-slate-900 dark:text-slate-100; }
+}
+
 .creative-bg {
   background: radial-gradient(900px 400px at -10% -10%, rgba(79,70,229,0.12), transparent 50%),
               radial-gradient(700px 320px at 110% -10%, rgba(14,165,233,0.10), transparent 50%),
               radial-gradient(600px 280px at 50% 110%, rgba(16,185,129,0.08), transparent 50%),
               #ffffff;
 }
+.dark .creative-bg {
+  background: radial-gradient(900px 400px at -10% -10%, rgba(79,70,229,0.08), transparent 50%),
+              radial-gradient(700px 320px at 110% -10%, rgba(14,165,233,0.06), transparent 50%),
+              radial-gradient(600px 280px at 50% 110%, rgba(16,185,129,0.05), transparent 50%),
+              #0f172a;
+}
 
 .card {
-  border-width: 3px;
-  border-color: #94a3b8;
-  border-style: solid; @apply rounded-xl border border-black/5 bg-white shadow-sm; }
+  @apply rounded-xl border border-black/5 bg-white shadow-sm dark:bg-slate-800 dark:border-white/10;
+}
 .blog-content h2 { @apply text-xl font-semibold mt-4; }
-.blog-content p { @apply mt-2 text-slate-700; }
+.blog-content p { @apply mt-2 text-slate-700 dark:text-slate-300; }
 .blog-content ul { @apply list-disc pl-6 mt-2; }
 
 html { font-size: 17px; }

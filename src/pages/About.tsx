@@ -12,29 +12,29 @@ export default function About(){
       <Header />
       <main className="relative z-10">
         <section className="mx-auto max-w-4xl px-4 py-12">
-          <h1 className="text-4xl font-bold">About me</h1>
+          <h1 className="text-4xl font-bold dark:text-slate-100">About me</h1>
 
-          <p className="mt-6 text-lg leading-relaxed text-slate-800">
-            I’m Gordon ("鄧友尊") Tang — a developer who loves learning and solving problems. Outside of work, I’m into judo, the gym, and video games.
+          <p className="mt-6 text-lg leading-relaxed text-slate-800 dark:text-slate-200">
+            I'm Gordon ("鄧友尊") Tang — a developer who loves learning and solving problems. Outside of work, I'm into judo, the gym, and video games.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-slate-800">
-            I believe in the Japanese philosophy of Kaizen — continuous improvement. You can usually catch me learning something or improving — whether it’s coding, a new gym routine, or a new judo throw.
+          <p className="mt-4 text-lg leading-relaxed text-slate-800 dark:text-slate-200">
+            I believe in the Japanese philosophy of Kaizen — continuous improvement. You can usually catch me learning something or improving — whether it's coding, a new gym routine, or a new judo throw.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-slate-800">
-            I’m currently a Recruit Programmer at Statistics Canada, working mainly with C# and Python — building the next generation of census tabulation and improving business statistics processing software.
+          <p className="mt-4 text-lg leading-relaxed text-slate-800 dark:text-slate-200">
+            I'm currently a Data Engineer at Statistics Canada, working mainly with C# and Python — building the next generation of census tabulation and improving business statistics processing software.
           </p>
-          <p className="mt-4 text-lg leading-relaxed text-slate-800">
+          <p className="mt-4 text-lg leading-relaxed text-slate-800 dark:text-slate-200">
             I graduated with a Bachelor of Computer Science (Honours) from Carleton University (2023), with focuses in AI, statistics, and economics.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-3 text-sm">
             <a href="/resume.pdf" className="rounded-full bg-brand-500 text-white px-4 py-2 hover:opacity-90">Resume</a>
-            <a href="https://github.com/coffeeboost" className="rounded-full border border-black/10 px-4 py-2 hover:bg-black/5">GitHub</a>
-            <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" className="rounded-full border border-black/10 px-4 py-2 hover:bg-black/5">LinkedIn</a>
+            <a href="https://github.com/coffeeboost" className="rounded-full border border-black/10 px-4 py-2 hover:bg-black/5 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/5">GitHub</a>
+            <a href="https://www.linkedin.com/in/gordon-tang-2023/" className="rounded-full border border-black/10 px-4 py-2 hover:bg-black/5 dark:border-white/10 dark:text-slate-300 dark:hover:bg-white/5">LinkedIn</a>
           </div>
 
-          <h2 className="mt-10 text-2xl font-semibold">Toolkit</h2>
-          <div className="mt-3">{/* tightened spacing */}
+          <h2 className="mt-10 text-2xl font-semibold dark:text-slate-100">Toolkit</h2>
+          <div className="mt-3">
             <ToolkitMap />
           </div>
         </section>

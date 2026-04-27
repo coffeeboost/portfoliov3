@@ -1,5 +1,12 @@
-title: "Vibe coding"
+title: "Vibe Coding and the Agentic AI Frontier"
 date: 2025-08-28
 summary: |
-  ---
-    Wrote this entire portfolio website using vibe coding. Tips: upload code to github so it can scrape. Have a conversation.
+  I built this entire portfolio using vibe coding — a workflow where you describe what you want in plain language and an AI agent writes, edits, and iterates on the code with you. The experience was genuinely different from anything I'd done before.
+
+  The key shift is that you stop thinking in terms of syntax and start thinking in terms of intent. Instead of writing a Framer Motion animation, you describe the feeling you want — "fade in after the headline finishes typing" — and the agent figures out the implementation. It's faster, but more importantly it keeps you in a creative flow state rather than an implementation one.
+
+  There's an irony I sit with though: agentic coding tools are banned at my day job at Statistics Canada for security reasons. Government environments have strict controls around what software can run, what data can leave the network, and what external services can be called. An AI agent that reads your codebase and sends it to an external API is a non-starter in that context — and honestly, that policy makes sense given the sensitivity of the data we work with.
+
+  So I live in two worlds. At work, I write C# and Python the traditional way — deliberate, reviewed, security-conscious. At home, I experiment with agents, prompts, and tools that would never pass a government security review. The contrast has made me a better engineer in both directions: I think more carefully about what "safe" means, and I think more ambitiously about what's possible when those constraints are lifted.
+
+  If you want to try vibe coding yourself: upload your project to GitHub so the AI can browse context, start conversations with clear goals rather than vague ideas, and treat the output as a first draft you refine — not a finished product you ship blindly.

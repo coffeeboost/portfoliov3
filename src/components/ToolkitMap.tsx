@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 
 type Node = { label: string; icon: string }
-
 type Group = { title: string; color: string; nodes: Node[] }
 
 const groups: Group[] = [
@@ -27,16 +26,21 @@ const groups: Group[] = [
     ]
   },
   {
-    title: 'Backend / Infra', color: '#0ea5e9',
+    title: 'Backend', color: '#0ea5e9',
     nodes: [
       { icon:'mdi:language-csharp', label:'C#' },
+      { icon:'simple-icons:flask', label:'Flask' },
+      { icon:'simple-icons:junit5', label:'JUnit' },
+    ]
+  },
+  {
+    title: 'DevOps / Infra', color: '#8b5cf6',
+    nodes: [
       { icon:'logos:microsoft-azure', label:'Azure' },
       { icon:'logos:docker-icon', label:'Docker' },
       { icon:'logos:kubernetes', label:'Kubernetes' },
       { icon:'logos:elasticsearch', label:'Elasticsearch' },
       { icon:'simple-icons:opensearch', label:'OpenSearch' },
-      { icon:'simple-icons:flask', label:'Flask' },
-      { icon:'simple-icons:junit5', label:'JUnit' },
     ]
   }
 ]
@@ -52,38 +56,35 @@ export default function ToolkitMap(){
 }
 
 function GroupCard({ g, i }: { g: Group; i: number }){
-  const spokes = 8
   return (
     <motion.div
       initial={{opacity:0, scale:0.98, y:6}}
       whileInView={{opacity:1, scale:1, y:0}}
       viewport={{once:true, margin:'-10%'}}
       transition={{type:'spring', stiffness:160, damping:14, delay:i*0.05}}
-      className="relative w-[300px] sm:w-[340px] h-[200px]"
+      className="relative w-[280px] sm:w-[300px]"
     >
-      <svg className="absolute inset-0" width="100%" height="100%" viewBox="0 0 300 200" preserveAspectRatio="xMidYMid meet">
-        <ellipse cx="150" cy="100" rx="136" ry="86" fill={g.color} opacity="0.06" />
-        <g stroke={g.color} opacity="0.18" strokeWidth="1">
-          {Array.from({length:spokes}).map((_,k)=>{
-            const ang=(k/spokes)*Math.PI*2
-            const x=150+Math.cos(ang)*112, y=100+Math.sin(ang)*72
-            return <line key={k} x1="150" y1="100" x2={x} y2={y}/>
-          })}
-          {Array.from({length:spokes}).map((_,k)=>{
-            const a1=(k/spokes)*Math.PI*2, a2=((k+1)%spokes/spokes)*Math.PI*2
-            const x1=150+Math.cos(a1)*112, y1=100+Math.sin(a1)*72
-            const x2=150+Math.cos(a2)*112, y2=100+Math.sin(a2)*72
-            return <line key={'r'+k} x1={x1} y1={y1} x2={x2} y2={y2}/>
-          })}
-        </g>
+      <svg aria-hidden className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice">
+        <ellipse cx="150" cy="150" rx="136" ry="136" fill={g.color} opacity="0.06" />
+        {Array.from({length:8}).map((_,k)=>{
+          const ang=(k/8)*Math.PI*2
+          const x=150+Math.cos(ang)*120, y=150+Math.sin(ang)*120
+          return <line key={k} x1="150" y1="150" x2={x} y2={y} stroke={g.color} opacity="0.18" strokeWidth="1"/>
+        })}
+        {Array.from({length:8}).map((_,k)=>{
+          const a1=(k/8)*Math.PI*2, a2=((k+1)%8/8)*Math.PI*2
+          const x1=150+Math.cos(a1)*120, y1=150+Math.sin(a1)*120
+          const x2=150+Math.cos(a2)*120, y2=150+Math.sin(a2)*120
+          return <line key={'r'+k} x1={x1} y1={y1} x2={x2} y2={y2} stroke={g.color} opacity="0.18" strokeWidth="1"/>
+        })}
       </svg>
-      <div className="absolute inset-0 p-4">
-        <div className="mb-1 text-xs font-medium text-slate-700 text-center">{g.title}</div>
-        <div className="flex flex-wrap gap-2 justify-center content-center text-center">
-          {g.nodes.map((n,ni)=> (
+      <div className="relative p-5">
+        <div className="mb-3 text-xs font-semibold text-slate-600 dark:text-slate-400 text-center uppercase tracking-wide">{g.title}</div>
+        <div className="flex flex-wrap gap-2 justify-center">
+          {g.nodes.map((n, ni) => (
             <motion.span
               key={n.label}
-              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1 shadow-sm dark:bg-slate-700 dark:border-white/10 dark:text-slate-200"
               initial={{opacity:0, scale:0.95, y:4}}
               whileInView={{opacity:1, scale:1, y:0}}
               viewport={{once:true}}

@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Icon } from '@iconify/react'
 
-const HEADLINE = `Hey, I’m Gordon Tang — a software engineer based in Ottawa, Canada.`
+const HEADLINE = `Hey, I'm Gordon Tang — a software engineer based in Ottawa, Canada.`
 const EARTHS = [
   'twemoji:globe-showing-americas',
   'twemoji:globe-showing-europe-africa',
@@ -39,16 +39,16 @@ export default function Home(){
       <Header/>
       <main className="relative z-10">
         <section className="mx-auto max-w-3xl px-4 py-20 text-center flex flex-col items-center">
-          <h1 className="text-4xl sm:text-5xl font-bold leading-tight whitespace-pre-wrap">
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight whitespace-pre-wrap dark:text-slate-100">
             <span>{typed}</span>
-            <span className="ml-1 inline-block align-baseline blink-cursor text-slate-400">|</span>
+            <span className="ml-1 inline-block align-baseline blink-cursor text-slate-400 dark:text-slate-500">|</span>
           </h1>
 
           <motion.p
             initial={{opacity:0,y:8}}
             animate={done?{opacity:1,y:0}:{}}
             transition={{delay:0.2,duration:0.5}}
-            className="mt-4 text-lg text-slate-700"
+            className="mt-4 text-lg text-slate-700 dark:text-slate-300"
           >
             Always Learning. Always Improving.
           </motion.p>
@@ -60,7 +60,7 @@ export default function Home(){
             className="mt-6 flex gap-3 justify-center"
           >
             <a href="/resume.pdf" className="rounded-full bg-brand-500 text-white px-4 py-2 text-sm hover:opacity-90">Resume</a>
-            <Link to="/contact" className="rounded-full border border-black/10 px-4 py-2 text-sm">Contact</Link>
+            <Link to="/contact" className="rounded-full border border-black/10 px-4 py-2 text-sm dark:border-white/10 dark:text-slate-300">Contact</Link>
           </motion.div>
 
           <motion.figure
@@ -69,11 +69,11 @@ export default function Home(){
             transition={{delay:0.5,duration:0.5}}
             className="mt-10"
           >
-            <div className="relative h-44 w-44 mx-auto overflow-hidden rounded-2xl ring-4 ring-black/5">
+            <div className="relative h-44 w-44 mx-auto overflow-hidden rounded-2xl ring-4 ring-black/5 dark:ring-white/10">
               <img src="/gordon-tang-headshot.jpg" alt="鄧友尊" className="h-full w-full object-cover"/>
             </div>
-            <figcaption className="mt-3 text-center text-sm italic text-slate-500 flex items-center justify-center gap-2">
-              <span>“Laissez-faire et laissez-passer, le monde va de lui-même.”</span>
+            <figcaption className="mt-3 text-center text-sm italic text-slate-500 dark:text-slate-400 flex items-center justify-center gap-2">
+              <span>"Laissez-faire et laissez-passer, le monde va de lui-même."</span>
               <AnimatePresence mode="wait">
                 <motion.span key={ei} initial={{opacity:0, rotate:-6}} animate={{opacity:1, rotate:0}} exit={{opacity:0, rotate:6}} transition={{duration:0.2}}>
                   <Icon icon={EARTHS[ei]} width={16} height={16} />

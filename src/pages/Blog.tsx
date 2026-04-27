@@ -1,12 +1,13 @@
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import KaizenBackdrop from '../components/KaizenBackdrop'
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 import YAML from 'yaml'
 
 const files = import.meta.glob<string>(
-  '/content/posts/*.{yml,yaml}',
+  '../../content/posts/*.{yml,yaml}',
   { as: 'raw', eager: true }
 ) as Record<string,string>
 
@@ -55,12 +56,12 @@ function ExpandableCard({ p }: { p: Post }){
       className="card p-5"
     >
       <header>
-        <h2 className="text-xl font-semibold">{p.title}</h2>
-        <div className="mt-1 text-xs text-slate-500">
+        <h2 className="text-xl font-semibold dark:text-slate-100">{p.title}</h2>
+        <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">
           {p.date && <time dateTime={p.date}>{new Date(p.date).toLocaleDateString()}</time>}
         </div>
       </header>
-      <div className="mt-3 blog-content whitespace-pre-wrap">
+      <div className="mt-3 blog-content whitespace-pre-wrap text-slate-700 dark:text-slate-300">
         {open ? p.summary : preview}
         {p.summary && (
           <button onClick={()=>setOpen(!open)} className="mt-3 ml-2 text-sm text-brand-500 hover:underline inline-block">
@@ -76,11 +77,12 @@ export default function Blog(){
   const posts = useMemo(() => getPosts(), [])
   return (
     <div className="relative min-h-screen">
+      <KaizenBackdrop fixed />
       <Header/>
       <main className="relative z-10">
         <section className="mx-auto max-w-3xl px-4 py-10">
-          <h1 className="text-3xl font-bold">Blog</h1>
-          <p className="mt-2 text-slate-700 flex items-center gap-2">Short posts, small wins <Icon icon="ph:trophy-duotone" width={16} height={16} /></p>
+          <h1 className="text-3xl font-bold dark:text-slate-100">Blog</h1>
+          <p className="mt-2 text-slate-700 dark:text-slate-300 flex items-center gap-2">Short posts, small wins <Icon icon="ph:trophy-duotone" width={16} height={16} /></p>
           <div className="mt-6 grid gap-4">
             {posts.map(p => (
               <ExpandableCard key={p.path} p={p} />
